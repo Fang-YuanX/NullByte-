@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NullByte | Komunitas Ethical Hacking untuk Pemula</title>
+<meta name="description" content="NullByte adalah komunitas belajar ethical hacking dan cyber security untuk pemula.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#F2F4FA;--surface:#FFF;--ink:#12163A;--muted:#565C80;--line:#D9DDEE;--accent:#4A3FD8;--accent-ink:#FFF;--signal:#B45F00;--glow:rgba(74,63,216,.14);
+--sans:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1230;--surface:#161B42;--ink:#ECEEFA;--muted:#9AA1CC;--line:#272E63;--accent:#9B8CFF;--accent-ink:#0E1230;--signal:#FFB454;--glow:rgba(155,140,255,.18)}}
+:root[data-theme="dark"]{--bg:#0E1230;--surface:#161B42;--ink:#ECEEFA;--muted:#9AA1CC;--line:#272E63;--accent:#9B8CFF;--accent-ink:#0E1230;--signal:#FFB454;--glow:rgba(155,140,255,.18)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;position:relative}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:66px;gap:14px}
+.logo{font-weight:800;font-size:1.3rem;letter-spacing:-.02em;text-decoration:none}
+.logo i{font-style:normal;color:var(--signal)}
+nav.links{display:flex;align-items:center;gap:22px;font-size:.95rem}
+nav.links a.l{text-decoration:none;color:var(--muted);transition:color .2s}
+nav.links a.l:hover{color:var(--ink)}
+#tg{font:inherit;font-size:.88rem;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;transition:border-color .2s}
+#tg:hover{border-color:var(--accent)}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:13px 24px;border-radius:12px;border:1px solid var(--line);transition:transform .2s,filter .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.main{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);box-shadow:0 12px 30px -12px var(--accent)}
+.btn.main:hover{filter:brightness(1.1)}
+.btn.ghost:hover{border-color:var(--accent)}
+.btn.sm{padding:8px 16px;font-size:.9rem;border-radius:999px}
+@media(max-width:760px){nav.links a.l{display:none}}
+
+section.sec{padding:96px 0}
+section.sec+section.sec{border-top:1px solid var(--line)}
+h2{font-size:clamp(1.8rem,3.8vw,2.7rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 14px;font-weight:800;max-width:20ch}
+.lead{color:var(--muted);max-width:58ch;margin:0}
+
+.hero{position:relative;padding:80px 0 72px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:52px 52px;opacity:.55;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 75% 20%,#000,transparent 75%);mask-image:radial-gradient(ellipse 70% 80% at 75% 20%,#000,transparent 75%)}
+.hero::after{content:'';position:absolute;width:560px;height:560px;right:-120px;top:-160px;background:radial-gradient(circle,var(--glow),transparent 68%);pointer-events:none}
+.hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+h1{font-size:clamp(2.6rem,6.4vw,4.8rem);line-height:1;letter-spacing:-.04em;font-weight:800;margin:0 0 24px}
+.w{display:inline-block}
+.hero p.sub{font-size:1.18rem;color:var(--muted);max-width:46ch;margin:0 0 32px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.hex{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px 22px;font-family:var(--mono);font-size:clamp(11px,3.1vw,14.5px);overflow-x:auto;box-shadow:0 30px 70px -34px var(--accent)}
+.hex .hd{display:flex;gap:7px;margin-bottom:14px}.hex .hd span{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.hex .row{display:flex;gap:1.3em;white-space:nowrap;padding:5px 0}
+.hex .off,.hex .asc{color:var(--muted)}.hex .by{display:flex;gap:.7em;flex:1}.hex b{font-weight:500}
+.hex b.z{color:var(--signal);background:color-mix(in srgb,var(--signal) 18%,transparent);border-radius:4px;padding:0 3px;margin:0 -3px}
+.hex em{font-style:normal;color:var(--signal)}
+.hex .note{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--line);font:.88rem/1.5 var(--sans);color:var(--muted);white-space:normal}
+@media(max-width:860px){.hero .grid{grid-template-columns:1fr;gap:40px}.hero{padding-top:48px}}
+
+.marq{border-block:1px solid var(--line);overflow:hidden;padding:16px 0;background:color-mix(in srgb,var(--surface) 55%,transparent)}
+.track{display:flex;width:max-content;gap:44px;font-family:var(--mono);font-size:.95rem;color:var(--muted)}
+.track span{display:flex;align-items:center;gap:44px;white-space:nowrap}
+.track span::after{content:'';width:7px;height:7px;background:var(--signal);transform:rotate(45deg)}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.about p{margin:0 0 16px;color:var(--muted)}
+.about code{font-family:var(--mono);font-size:.92em;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--signal)}
+@media(max-width:860px){.about{grid-template-columns:1fr;gap:6px}}
+
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:44px}
+.card{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;transition:border-color .25s,transform .25s}
+.card::before{content:'';position:absolute;inset:0;background:radial-gradient(280px circle at var(--x,50%) var(--y,0%),var(--glow),transparent 70%);opacity:0;transition:opacity .25s}
+.card:hover{border-color:var(--accent);transform:translateY(-3px)}.card:hover::before{opacity:1}
+.card>*{position:relative}
+.card .g{font:500 1.5rem var(--mono);color:var(--signal);margin-bottom:34px;display:block}
+.card h3{margin:0 0 8px;font-size:1.25rem;letter-spacing:-.01em}
+.card p{margin:0;color:var(--muted);font-size:.98rem}
+.s4{grid-column:span 4}.s3{grid-column:span 3}.s2{grid-column:span 2}
+@media(max-width:860px){.bento{grid-template-columns:1fr 1fr}.bento .card{grid-column:span 1}}
+@media(max-width:560px){.bento{grid-template-columns:1fr}}
+
+.tl{position:relative;margin:52px 0 0;padding-left:56px}
+.tl::before,.tl::after{content:'';position:absolute;left:17px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl::after{background:var(--accent);transform-origin:top;transform:scaleY(var(--p,0))}
+.tl .st{position:relative;padding:0 0 44px;counter-increment:s}.tl .st:last-child{padding-bottom:0}
+.tl .st::before{content:counter(s);position:absolute;left:-56px;top:-2px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:2px solid var(--line);font-weight:800;transition:all .4s}
+.tl .st.in::before{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 0 0 6px var(--glow)}
+.tl{counter-reset:s}
+.tl h3{margin:2px 0 6px;font-size:1.3rem}.tl p{margin:0;color:var(--muted);max-width:56ch}
+
+.term{margin-top:40px;background:#0B0F2A;color:#D8DCFF;border:1px solid #272E63;border-radius:18px;font-family:var(--mono);font-size:.92rem;overflow:hidden;box-shadow:0 30px 70px -36px var(--accent)}
+.term .tb{display:flex;gap:7px;padding:12px 16px;background:#121738;border-bottom:1px solid #272E63}.term .tb span{width:10px;height:10px;border-radius:50%;background:#2c3470}
+#to{padding:18px 20px 6px;min-height:200px;max-height:320px;overflow-y:auto;line-height:1.7}
+#to div{white-space:pre-wrap;word-break:break-word}.term .p{color:#9B8CFF}.term a{color:#FFB454}
+.term .in{display:flex;gap:10px;padding:6px 20px 18px}
+#ti{flex:1;min-width:0;background:transparent;border:0;color:inherit;font:inherit;outline:0}
+.hint{margin:14px 0 0;color:var(--muted);font-size:.92rem}
+
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:30px 56px;margin-top:44px}
+.rules div{border-left:3px solid var(--signal);padding-left:20px}
+.rules h3{margin:0 0 4px;font-size:1.15rem}.rules p{margin:0;color:var(--muted);font-size:.98rem}
+@media(max-width:700px){.rules{grid-template-columns:1fr}}
+
+.join{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:clamp(28px,6vw,60px);display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center}
+.join::before{content:'';position:absolute;width:460px;height:460px;left:-140px;bottom:-240px;background:radial-gradient(circle,var(--glow),transparent 70%)}
+.join>*{position:relative}
+.join .act{display:flex;flex-direction:column;gap:12px}.join .btn{text-align:center}
+.join .ct{font-family:var(--mono);font-size:.93rem;color:var(--muted);margin:18px 0 0;line-height:1.9;word-break:break-all}
+.btn.wa{background:#1FA855;border-color:#1FA855;color:#fff;box-shadow:0 12px 30px -12px #1FA855}
+@media(max-width:860px){.join{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding:32px 0 44px;color:var(--muted);font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:9px;background:#1FA855;color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;padding:12px 18px;border-radius:999px;box-shadow:0 14px 34px -10px rgba(31,168,85,.7);transition:transform .2s}
+.fab:hover{transform:translateY(-3px)}
+.fab svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linejoin:round}
+
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:no-preference){
+.js .w{opacity:0;transform:translateY(.5em);animation:up .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--d)*90ms + 100ms)}
+.js .hero .sub,.js .hero .cta{opacity:0;animation:up .8s .8s forwards}
+.js .hex b,.js .hex .asc{opacity:0;animation:on .01s forwards;animation-delay:calc(var(--i)*55ms + 500ms)}
+.track{animation:mq 38s linear infinite}
+@keyframes up{to{opacity:1;transform:none}}@keyframes on{to{opacity:1}}@keyframes mq{to{transform:translateX(-50%)}}}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.card,.btn{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap bar">
+<a class="logo" href="#atas" aria-label="NullByte, ke atas">NullByte<i>.</i></a>
+<nav class="links" aria-label="Navigasi utama">
+<a class="l" href="#tentang">Tentang</a><a class="l" href="#fokus">Fokus</a><a class="l" href="#jalur">Jalur belajar</a><a class="l" href="#terminal">Terminal</a><a class="l" href="#etika">Etika</a>
+<button id="tg" type="button" aria-label="Ganti tema terang atau gelap">Tema</button>
+<a class="btn main sm" href="#gabung">Gabung</a>
+</nav></div></header>
+
+<main id="atas">
+<section class="hero"><div class="wrap grid">
+<div>
+<h1>Belajar keamanan siber, mulai dari byte pertama.</h1>
+<p class="sub">NullByte adalah komunitas belajar ethical hacking untuk pemula. Materi dasar yang runtut, latihan di lab legal, dan diskusi yang saling bantu.</p>
+<div class="cta"><a class="btn main" href="https://wa.me/6281339975771?text=Halo%20NullByte%2C%20saya%20mau%20gabung%20komunitas" target="_blank" rel="noopener">Chat WhatsApp</a><a class="btn ghost" href="#jalur">Lihat jalur belajar</a></div>
+</div>
+<div class="hex" role="img" aria-label="Hex dump yang menampilkan kata NullByte, Belajar, Berbagi, dan Etika, masing-masing diakhiri byte nol"><div class="hd"><span></span><span></span><span></span></div><div id="hex"></div><p class="note">Setiap kata berakhir dengan byte <b style="font-weight:600;color:var(--signal)">00</b>, titik nol yang jadi nama komunitas ini.</p></div>
+</div></section>
+
+<div class="marq" aria-hidden="true"><div class="track" id="trk"></div></div>
+
+<section class="sec" id="tentang"><div class="wrap about">
+<div class="rv"><h2>Kenapa bernama NullByte?</h2></div>
+<div class="rv" style="--d:.12s"><p>Null byte (<code>\0</code>) adalah byte bernilai nol yang menandai akhir sebuah string di bahasa C. Celah null byte injection muncul ketika dua sistem membaca batas string itu secara berbeda, dan ini jadi salah satu pelajaran klasik pertama di dunia keamanan.</p>
+<p>Kami memakainya sebagai nama karena semua orang di sini mulai dari titik nol. Tidak perlu latar belakang IT. Yang dibutuhkan hanya rasa ingin tahu dan kemauan belajar dengan cara yang benar.</p></div>
+</div></section>
+
+<section class="sec" id="fokus"><div class="wrap">
+<div class="rv"><h2>Apa yang kami pelajari</h2><p class="lead">Enam topik inti, disusun dari yang paling dasar supaya pemula tidak tersesat di tengah jalan.</p></div>
+<div class="bento">
+<div class="card s4 rv"><span class="g">~/</span><h3>Dasar jaringan dan Linux</h3><p>Cara data berpindah antar komputer dan cara bekerja di terminal. Fondasi untuk semua topik lain, jadi kami mulai dari sini.</p></div>
+<div class="card s2 rv" style="--d:.08s"><span class="g">&lt;/&gt;</span><h3>Keamanan web</h3><p>Celah umum seperti XSS dan SQL injection, lalu cara menambalnya.</p></div>
+<div class="card s2 rv"><span class="g">{ }</span><h3>CTF dan lab latihan</h3><p>Soal tantangan di lingkungan legal, dibahas bersama setelah selesai.</p></div>
+<div class="card s4 rv" style="--d:.08s"><span class="g">0x</span><h3>Kriptografi dasar</h3><p>Hash, enkripsi, dan alasan password tidak boleh disimpan sebagai teks biasa. Dijelaskan dengan contoh yang bisa langsung dicoba.</p></div>
+<div class="card s3 rv"><span class="g">@?</span><h3>OSINT</h3><p>Mengumpulkan informasi dari sumber terbuka dengan metode yang etis dan terdokumentasi.</p></div>
+<div class="card s3 rv" style="--d:.08s"><span class="g">.py</span><h3>Python untuk keamanan</h3><p>Menulis skrip kecil untuk mengotomatiskan tugas yang berulang.</p></div>
+</div></div></section>
+
+<section class="sec" id="jalur"><div class="wrap">
+<div class="rv"><h2>Jalur belajar untuk pemula</h2><p class="lead">Ikuti urutannya. Setiap tahap membuka tahap berikutnya.</p></div>
+<div class="tl" id="tl">
+<div class="st rv"><h3>Bangun fondasi</h3><p>Jaringan, Linux, dan dasar Python sampai nyaman memakai terminal.</p></div>
+<div class="st rv"><h3>Pahami konsepnya</h3><p>Prinsip keamanan, kerentanan umum, dan cara penyerang berpikir supaya kamu bisa bertahan.</p></div>
+<div class="st rv"><h3>Praktik di lab</h3><p>Kerjakan soal CTF dan mesin latihan yang memang disediakan untuk belajar.</p></div>
+<div class="st rv"><h3>Tulis dan bagikan</h3><p>Dokumentasikan hasilnya, jelaskan ke teman, dan saling koreksi.</p></div>
+</div></div></section>
+
+<section class="sec" id="terminal"><div class="wrap">
+<div class="rv"><h2>Coba terminal NullByte</h2><p class="lead">Ketik perintah di bawah untuk kenalan dengan komunitas ini.</p></div>
+<div class="term rv" role="group" aria-label="Terminal interaktif">
+<div class="tb"><span></span><span></span><span></span></div>
+<div id="to" aria-live="polite"></div>
+<div class="in"><span class="p">nullbyte:~$</span><input id="ti" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Ketik perintah" placeholder="ketik help"></div>
+</div>
+<p class="hint">Perintah yang tersedia: help, tentang, topik, jalur, aturan, gabung, clear.</p>
+</div></section>
+
+<section class="sec" id="etika"><div class="wrap">
+<div class="rv"><h2>Aturan main komunitas</h2><p class="lead">Ilmu keamanan itu pedang bermata dua. Empat prinsip ini berlaku untuk semua anggota.</p></div>
+<div class="rules">
+<div class="rv"><h3>Izin dulu</h3><p>Menguji sistem milik orang lain tanpa izin tertulis itu ilegal, apa pun niatnya.</p></div>
+<div class="rv" style="--d:.08s"><h3>Praktik di lab sendiri</h3><p>Pakai mesin virtual, platform latihan, atau target yang memang dibuat untuk dilatih.</p></div>
+<div class="rv"><h3>Lapor, jangan pamer</h3><p>Menemukan celah berarti menghubungi pemiliknya dengan cara yang bertanggung jawab.</p></div>
+<div class="rv" style="--d:.08s"><h3>Bagi ilmunya</h3><p>Pertanyaan pemula selalu disambut. Tidak ada yang ditertawakan karena belum tahu.</p></div>
+</div></div></section>
+
+<section class="sec" id="gabung"><div class="wrap"><div class="join rv">
+<div><h2>Mau belajar bareng?</h2><p class="lead">Hubungi kami lewat WhatsApp atau email. Sebutkan nama dan topik yang ingin kamu pelajari lebih dulu.</p>
+<p class="ct">WhatsApp bisnis: +62 813-3997-5771<br>Email: agusremon31@gmail.com</p></div>
+<div class="act"><a class="btn wa" href="https://wa.me/6281339975771?text=Halo%20NullByte%2C%20saya%20mau%20gabung%20komunitas" target="_blank" rel="noopener">Chat WhatsApp</a><a class="btn ghost" href="mailto:agusremon31@gmail.com?subject=Gabung%20NullByte">Kirim email</a></div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap"><span>NullByte &copy; 2026</span><span>Untuk belajar dan keamanan yang legal.</span></div></footer>
+
+<a class="fab" href="https://wa.me/6281339975771?text=Halo%20NullByte%2C%20saya%20mau%20gabung%20komunitas" target="_blank" rel="noopener" aria-label="Chat WhatsApp NullByte"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H9l-5 4z"/></svg>WhatsApp</a>
+
+<script>
+(function(){
+var d=document,r=d.documentElement,k='nb-theme',$=function(i){return d.getElementById(i)};
+try{var s=localStorage.getItem(k);if(s==='dark'||s==='light')r.setAttribute('data-theme',s)}catch(e){}
+$('tg').onclick=function(){var c=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=c==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem(k,n)}catch(e){}};
+var h=d.querySelector('h1');h.innerHTML=h.textContent.split(' ').map(function(w,n){return '<span class="w" style="--d:'+n+'">'+w+'</span>'}).join(' ');
+var hx=$('hex'),i=0,off=0;
+['NullByte','Belajar','Berbagi','Etika'].forEach(function(w){
+var row=d.createElement('div');row.className='row';
+var o=d.createElement('span');o.className='off';o.textContent=('000'+off.toString(16)).slice(-4);row.appendChild(o);
+var by=d.createElement('span');by.className='by';
+(w+'\0').split('').forEach(function(c){var b=d.createElement('b');b.textContent=('0'+c.charCodeAt(0).toString(16)).slice(-2).toUpperCase();b.style.setProperty('--i',++i);if(c==='\0')b.className='z';by.appendChild(b)});
+row.appendChild(by);
+var a=d.createElement('span');a.className='asc';a.style.setProperty('--i',++i);a.appendChild(d.createTextNode(w));var em=d.createElement('em');em.textContent='.';a.appendChild(em);row.appendChild(a);
+hx.appendChild(row);off+=w.length+1});
+var T=['Linux','Jaringan','Keamanan web','CTF','OSINT','Kriptografi','Python','Ethical hacking','Ramah untuk pemula'],t='';
+for(var j=0;j<2;j++){t+='<span>'+T.map(function(x){return '<span style="gap:0">'+x+'</span>'}).join('')+'</span>'}
+$('trk').innerHTML='<span>'+T.join('</span><span>')+'</span><span>'+T.join('</span><span>')+'</span>';
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+d.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+d.querySelectorAll('.card').forEach(function(c){c.addEventListener('pointermove',function(e){var b=c.getBoundingClientRect();c.style.setProperty('--x',(e.clientX-b.left)+'px');c.style.setProperty('--y',(e.clientY-b.top)+'px')})});
+var tl=$('tl');function sc(){var b=tl.getBoundingClientRect(),p=(innerHeight*.65-b.top)/b.height;tl.style.setProperty('--p',Math.max(0,Math.min(1,p)))}
+addEventListener('scroll',sc,{passive:true});sc();
+var to=$('to'),ti=$('ti'),WA='https://wa.me/6281339975771?text=Halo%20NullByte';
+function line(x,cls){var e=d.createElement('div');if(cls)e.className=cls;e.textContent=x;to.appendChild(e);return e}
+var C={help:'Perintah: tentang, topik, jalur, aturan, gabung, clear',
+tentang:'NullByte adalah komunitas belajar ethical hacking untuk pemula. Semua mulai dari titik nol.',
+topik:'Linux dan jaringan, keamanan web, CTF, OSINT, kriptografi, Python.',
+jalur:'1 Fondasi > 2 Konsep > 3 Praktik di lab > 4 Tulis dan bagikan',
+aturan:'Izin dulu. Praktik di lab sendiri. Lapor, jangan pamer. Bagi ilmunya.'};
+line('Selamat datang di NullByte. Ketik help untuk melihat perintah.');
+ti.addEventListener('keydown',function(e){if(e.key!=='Enter')return;
+var v=ti.value.trim().toLowerCase();ti.value='';if(!v)return;
+var e2=line('nullbyte:~$ '+v,'p');
+if(v==='clear'){to.textContent='';return}
+if(v==='gabung'){var g=line('Chat WhatsApp: ');var a=d.createElement('a');a.href=WA;a.target='_blank';a.rel='noopener';a.textContent='+62 813-3997-5771';g.appendChild(a);line('Email: agusremon31@gmail.com')}
+else line(C[v]||'Perintah tidak dikenal: '+v+'. Ketik help untuk daftar perintah.');
+to.scrollTop=to.scrollHeight});
+})();
+</script>
+</body>
+</html>
